@@ -1,10 +1,15 @@
+import { Button } from '../FeedbackOptions/FeedbackOptions.styled';
+
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return options.map((option) => {
     return (
-            <button
-              key={option}
-              onClick={() => onLeaveFeedback(option)} type="button"
-            ></button>
+      <Button key={option} onClick={() => onLeaveFeedback(option)} type="button">
+        {capitalizeFirstLetter(option)}
+            </Button>
          );
   });
 };
+
+function capitalizeFirstLetter(str) {
+  return str[0].toUpperCase() + str.substring(1);
+}
